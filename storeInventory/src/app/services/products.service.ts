@@ -15,9 +15,9 @@ export class ProductsService {
 
     const db = getDatabase();
     update(ref(db, `Productos/${id}`), {
-      codigo:producto.name,
+      codigo:producto.codigo,
       tipo:producto.tipo,
-      name:producto.codigo,
+      name:producto.name,
       cant:producto.cant,
       precioUnitario:producto.precioUnitario,
       detail:producto.detail
@@ -31,9 +31,9 @@ export class ProductsService {
     const db = getDatabase();
     return push(ref(db, `Productos/`), {
 
-      codigo:producto.name,
+      codigo:producto.codigo,
       tipo:producto.tipo,
-      name:producto.codigo,
+      name:producto.name,
       cant:producto.cant,
       precioUnitario:producto.precioUnitario,
       detail:producto.detail

@@ -36,6 +36,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { ProductComponent } from './component/product/product.component';
 import { ManagerProductComponent } from './component/manager-product/manager-product.component';
 import { InvoiceComponent } from './component/invoice/invoice.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +59,8 @@ import { InvoiceComponent } from './component/invoice/invoice.component';
      MatCardModule,
      MatFormFieldModule,MatCardModule,
      FormsModule,
+     MatDatepickerModule,
+     MatNativeDateModule,
     FormsModule,
     MatInputModule,
     CommonModule,

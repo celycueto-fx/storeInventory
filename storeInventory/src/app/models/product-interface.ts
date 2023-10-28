@@ -1,9 +1,11 @@
 export interface ProductInterface {
   $key?:String;
-  codigo:String;
-  tipo:String;
-  name:String;
-  cant:number;
-  precioUnitario:number;
-  detail:String;
+  codigo?:String;
+  tipo?:String;
+  name?:String;
+  cant?:number;
+  iva?:Number;
+  descuento?:Number;
+  precioUnitario?:number;
+  detail?:String;
 }
