@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+h1{
+  font-weight:bold !important;
+margin: 0px;
+font-size: 22px !important;
+
+}
+.mat-typography h1 {
+  margin: 0px;
+}
+
+.mat-toolbar-single-row {
+color: #184655 !important;
+  background: #f7cc7e !important;
+}
+
+
+.image-content{
+  justify-content: center;
+  width: 30%;
+
+}
+.image-contentB{
+  justify-content: center;
+  width: 80%;
+}
+
+.titleInv{
+  background:#b3b3b3;
+  color:#184655;
+  opacity: 2;
+   padding: 10px;
+ padding: 20px;
+}
+
+mat-drawer-content {
+  position: relative;
+  z-index: 1;
+  display: block;
+  height: 100%;
+   overflow: hidden !important;
+}

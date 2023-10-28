@@ -1,0 +1,58 @@
+
+
+<div id="login"  fxLayoutAlign="center center">
+
+    <div class="content-login" fxLayout="column" fxLayoutAlign="center center" >
+
+        <mat-card class="card-login" fxFlex>
+            <mat-card-header fxLayout="column" fxLayoutAlign="center center">
+                <div >   <mat-card-title>Admin</mat-card-title></div>
+
+
+            </mat-card-header>
+            <mat-card-content>
+
+                <mat-card-subtitle fxLayout="column" fxLayoutAlign="center center">Iniciar sesion</mat-card-subtitle>
+              <div>
+                <form class="form-login" [formGroup]="form">
+                    <div fxLayoutAlign="center">
+                        <mat-form-field class="example-full-width"  fxFlex="90" appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input type="email" matInput formControlName="email"
+                                   placeholder="pat@example.com" >
+
+                            <mat-error *ngIf="form.get('email')?.hasError('email')">
+                          Email inválido
+                            </mat-error>
+                            <mat-error *ngIf="form.get('email')?.hasError('required')">
+                             Email requerido
+                              </mat-error>
+
+                          </mat-form-field>
+
+                    </div>
+                   <div fxLayoutAlign="center">
+                    <mat-form-field class="example-full-width"   fxFlex="90" appearance="outline">
+                        <mat-label>Contraseña</mat-label>
+                        <input type="password" matInput formControlName="pass"
+                               placeholder="contraseña">
+                               <mat-error *ngIf="form.get('pass')?.hasError('required')">
+                              Contraseña requerida
+                              </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="btn-login">
+                        <mat-card-actions fxLayoutAlign="center center">
+                          <button (click)="login()" class="colorbtnlogin" mat-button color="primary" fxFlex="50">Ingresar</button>
+
+                        </mat-card-actions>
+                        </div>
+
+                  </form>
+
+              </div>
+            </mat-card-content>
+        </mat-card>
+
+    </div>
+</div>

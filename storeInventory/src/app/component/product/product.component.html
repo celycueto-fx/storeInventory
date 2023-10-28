@@ -1,0 +1,104 @@
+<div id="product-main">
+  <div
+    class="titleInv"
+    fxLayout="row"
+    fxLayoutAlign="center center"
+    fxLayoutGap="20"
+  >
+    <h1>Crear Producto</h1>
+    <img class="image-content" src="../../../assets/product_1573347.png" />
+  </div>
+  <br />
+  <div class="formHotelstyle" fxLayout="column" fxLayoutAlign="center center">
+    <mat-card class="matContent">
+      <form [formGroup]="formProduct" fxLayout="column">
+        <div fxLayout="row" fxFlex="100" fxLayoutGap="20">
+          <div fxLayout="column" fxFlex="100">
+            <mat-label>Codigo:</mat-label>
+
+            <mat-form-field appearance="outline" fxFlex="100">
+              <input matInput placeholder="" formControlName="codigo" />
+              <mat-error *ngIf="formProduct.get('codigo')?.hasError('required')">
+                Campo requerido
+                 </mat-error>
+            </mat-form-field>
+
+          </div>
+
+          <div fxLayout="column" fxFlex="100">
+
+            <mat-label>Nombre:</mat-label>
+
+            <mat-form-field appearance="outline" fxFlex="100">
+              <input matInput placeholder="" formControlName="name" />
+              <mat-error *ngIf="formProduct.get('name')?.hasError('required')">
+                Campo requerido
+                 </mat-error>
+            </mat-form-field>
+
+          </div>
+        </div>
+
+        <div fxLayout="row" fxFlex="100" fxLayoutGap="20">
+          <div fxLayout="column" fxFlex="100">
+            <mat-label>Cantidad:</mat-label>
+            <mat-form-field appearance="outline" fxFlex="100" >
+              <input matInput placeholder="" formControlName="cant"  digitOnly/>
+              <mat-error *ngIf="formProduct.get('cant')?.hasError('required')">
+                Campo requerido
+                 </mat-error>
+            </mat-form-field>
+
+          </div>
+
+          <div fxLayout="column" fxFlex="100">
+            <mat-label>Tipo:</mat-label>
+
+            <mat-form-field appearance="outline" fxFlex="100">
+
+              <mat-select formControlName="tipo" matNativeControl fxflex="80" placeholder="Seleccione">
+                <mat-option value="Producto">Producto</mat-option>
+                <mat-option value="Servicio">Servicio</mat-option>
+
+              </mat-select>
+              <mat-error *ngIf="formProduct.get('tipo')?.hasError('required')">
+                Campo requerido
+                 </mat-error>
+            </mat-form-field>
+
+
+          </div>
+        </div>
+
+        <div fxLayout="row" fxFlex="100" fxLayoutGap="20">
+          <div fxLayout="column" fxFlex="100">
+            <mat-label>Precio:</mat-label>
+
+            <mat-form-field appearance="outline" fxFlex="100">
+              <input matInput placeholder="" formControlName="precioUnitario" />
+              <mat-error *ngIf="formProduct.get('precioUnitario')?.hasError('required')">
+                Campo requerido
+                 </mat-error>
+            </mat-form-field>
+
+          </div>
+
+          <div fxLayout="column" fxFlex="100">
+            <mat-label>Detalle:</mat-label>
+              <mat-form-field appearance="outline" fxFlex="100">
+                <input matInput placeholder="" formControlName="detail" />
+            </mat-form-field>
+          </div>
+        </div>
+
+
+
+        <div>
+          <button mat-raised-button class="btncolor" fxFlex (click)="createProduct()">
+           Crear Producto
+          </button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>

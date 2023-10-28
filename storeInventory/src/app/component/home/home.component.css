@@ -1,0 +1,116 @@
+#home-main{
+  .product-container {
+    width: 100%;
+
+height: 100%;
+  }
+  .cards{
+    flex-direction: row;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    cursor: pointer;
+
+    .card1{
+      color: white;
+      background: #7669d1
+
+    }
+    .card2{
+
+      color: white ;
+      background:#3f85f1
+    }
+    .card3{
+      color:white;
+      background:#ff6fa3
+    }
+  }
+
+  .image3{
+    width: 10%;
+  }
+
+
+
+  .product-sidenav-content {
+
+    height: 100%;
+    align-items: center;
+    background-color:white;
+    padding: 10px;
+    justify-content: center;
+
+  }
+  .menu{
+    font-size: 20px;
+    color: #01b399;
+    margin: 10px;
+    padding: 14px;
+    cursor: pointer;
+  }
+
+
+  .product-sidenav {
+    padding: 20px;
+  }
+
+
+  .spacer {
+    flex: 1;
+  }
+
+  .toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+  }
+
+
+  .snip1211 {
+cursor: pointer;
+display: flex;
+justify-content: flex-start;
+    font-weight: 10;
+    letter-spacing: 1px;
+  }
+  .snip1211 * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.35s ease;
+    transition: all 0.35s ease;
+  }
+
+  .snip1211 a {
+    padding: 0.4em 0;
+
+    font-weight: bold;
+    position: relative;
+    text-decoration: none;
+display: flex;
+justify-content: flex-start;
+
+  }
+.mat-icon{
+margin-right: 10px;
+}
+  .snip1211 a:hover,
+  .snip1211 .current a {
+
+    text-decoration: underline#01b399;
+    opacity: 2;
+    width: 100%;
+  }
+.titleInv{
+  background: #eafcfc ;
+  color:#184655
+}
+}
