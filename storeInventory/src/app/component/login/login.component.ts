@@ -23,8 +23,11 @@ export class LoginComponent implements OnInit {
    login(){
     if (this.form.value != null) {
       this.authService.signInWithEmailAndPassword(this.form.value.email, this.form.value.pass).then(() => {
+        alert("Inicio exitoso");
         this.router.navigate(['/home']);
 
+      }).catch((error)=>{
+        alert("Datos inválidos !!");
       });
 
     }
