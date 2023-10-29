@@ -83,12 +83,18 @@
               <mat-label>Cantidad: </mat-label>
 
               <mat-form-field appearance="outline" fxFlex="20">
-                <input matInput placeholder="" formControlName="cantidad" />
+                <input matInput placeholder="" formControlName="cantidad"  />
                 <mat-error
                   *ngIf="formInvoice.get('cantidad')?.hasError('required')"
                 >
                   Campo requerido
                 </mat-error>
+                <mat-error *ngIf="formInvoice.get('cantidad')?.hasError('min')">
+                  Ingrese cantidad mayor a 0
+                   </mat-error>
+                   <mat-error *ngIf="formInvoice.get('cantidad')?.hasError('pattern')">
+                    Ingrese solo numeros
+                     </mat-error>
               </mat-form-field>
             </div>
 
@@ -101,10 +107,12 @@
           <mat-label>Iva:</mat-label>
 
           <mat-form-field appearance="outline" fxFlex="100">
-            <input matInput placeholder="" formControlName="iva" />
-            <mat-error *ngIf="formInvoice.get('iva')?.hasError('required')">
-              Campo requerido
-            </mat-error>
+            <mat-select  formControlName="iva" matNativeControl fxflex="80" placeholder="Seleccione">
+              <mat-option value="0.19">19 %</mat-option>
+              <mat-option value="0.05">5 %</mat-option>
+
+            </mat-select>
+
           </mat-form-field>
         </div>
 
@@ -112,12 +120,15 @@
           <mat-label>Descuentos: </mat-label>
 
           <mat-form-field appearance="outline" fxFlex="20">
-            <input matInput placeholder="" formControlName="descuento" />
-            <mat-error
-              *ngIf="formInvoice.get('descuento')?.hasError('required')"
-            >
-              Campo requerido
-            </mat-error>
+            <mat-select  formControlName="descuento" matNativeControl fxflex="80" placeholder="Seleccione">
+              <mat-option value="0.1">10 %</mat-option>
+              <mat-option value="0.2">20 %</mat-option>
+              <mat-option value="0.3">30 %</mat-option>
+              <mat-option value="0.4">50 %</mat-option>
+              <mat-option value="0.5">50 %</mat-option>
+            </mat-select>
+
+
           </mat-form-field>
         </div>
       </div>

@@ -10,7 +10,7 @@ export class ProductsService {
 
   constructor() { }
 
-  setCliente(producto:ProductInterface, id: String) {
+  setProduct(producto:ProductInterface, id: String) {
 
 
     const db = getDatabase();

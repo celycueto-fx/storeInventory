@@ -38,6 +38,8 @@ import { ManagerProductComponent } from './component/manager-product/manager-pro
 import { InvoiceComponent } from './component/invoice/invoice.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import { EditProductComponent } from './component/manager-product/edit-product/edit-product.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,8 @@ import {MatNativeDateModule} from '@angular/material/core';
     LoginComponent,
     ProductComponent,
     ManagerProductComponent,
-    InvoiceComponent
+    InvoiceComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +64,7 @@ import {MatNativeDateModule} from '@angular/material/core';
      FormsModule,
      MatDatepickerModule,
      MatNativeDateModule,
+     MatDialogModule,
     FormsModule,
     MatInputModule,
     CommonModule,

@@ -20,8 +20,9 @@ export class InvoiceService {
 
       nameCliente:invoice.nameCliente,
       idCliente:invoice.idCliente,
-      nameP:invoice.product,
-      cantP:invoice.cantP,
+      date:invoice.date,
+      product:invoice.products,
+      cantP:invoice.cantidad,
       detail:invoice.detail,
       iva:invoice.iva,
      descuento:invoice.descuento,

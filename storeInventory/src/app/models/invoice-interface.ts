@@ -4,9 +4,9 @@ export interface InvoiceInterface {
   nameCliente:String;
   idCliente:String;
   date:String;
- product:Number;
+  products:ProductInterface[];
   detail:String;
-  cantP:Number;
+  cantidad:number;
   iva:Number;
   descuento:Number;
   total:Number;

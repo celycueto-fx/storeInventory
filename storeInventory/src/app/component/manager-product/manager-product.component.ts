@@ -3,6 +3,8 @@ import { MatTable } from '@angular/material/table';
 import { Route, Router } from '@angular/router';
 import { ProductInterface } from 'src/app/models/product-interface';
 import { ProductsService } from 'src/app/services/products.service';
+import {MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 @Component({
   selector: 'app-manager-product',
@@ -19,7 +21,8 @@ export class ManagerProductComponent implements OnInit,AfterViewInit {
 
   constructor(
     private serviceProduct$:ProductsService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
   ){
 
   }
@@ -27,7 +30,7 @@ export class ManagerProductComponent implements OnInit,AfterViewInit {
 
   }
   ngOnInit(): void {
-    this.getDatos()
+    this.getDatos();
   }
 
   async getDatos(): Promise<void> {
@@ -60,18 +63,30 @@ export class ManagerProductComponent implements OnInit,AfterViewInit {
 
 
   editarProduct(id: number): void {
-   let key = this.data[id].$key
-    this.router.navigate(['/product'], { queryParams: { edit: key?.toString() } }
-    );
+
+   let key = this.data[id].$key as String;
+   const dialogRef = this.dialog.open(EditProductComponent, {
+    data: key,
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+   alert("Producto modificado con exito!!");
+   this.getDatos();
+   this.tabla.renderRows();
+  });
+
   }
 
   async deleteProduct(id: number): Promise<void> {
     let key = this.data[id].$key;
     if(key){
-    await this.serviceProduct$.deleteProduct(key).then();
+    await this.serviceProduct$.deleteProduct(key).then(()=>{
+      alert("Item eliminado exitosamente !!");
+    });
 
     this.dataSource.splice(id,1);
     this.tabla.renderRows();
+
     }
   }
 }
