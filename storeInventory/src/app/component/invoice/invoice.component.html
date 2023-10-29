@@ -85,16 +85,19 @@
               <mat-form-field appearance="outline" fxFlex="20">
                 <input matInput placeholder="" formControlName="cantidad"  />
                 <mat-error
-                  *ngIf="formInvoice.get('cantidad')?.hasError('required')"
+                  *ngIf="formInvoice.get('cantidad')?.hasError('required')  && !isAgotado"
                 >
                   Campo requerido
                 </mat-error>
-                <mat-error *ngIf="formInvoice.get('cantidad')?.hasError('min')">
+                <mat-error *ngIf="formInvoice.get('cantidad')?.hasError('min') && !isAgotado">
                   Ingrese cantidad mayor a 0
                    </mat-error>
-                   <mat-error *ngIf="formInvoice.get('cantidad')?.hasError('pattern')">
-                    Ingrese solo numeros
+                   <mat-error *ngIf="formInvoice.get('cantidad')?.hasError('pattern') && !isAgotado">
+                    Ingrese solo números
                      </mat-error>
+                     <mat-error *ngIf="isAgotado">
+                      Unidades agotadas del producto
+                       </mat-error>
               </mat-form-field>
             </div>
 

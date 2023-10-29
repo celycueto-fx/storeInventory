@@ -1,7 +1,5 @@
+import { ProductsService } from './../../services/products.service';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-home',
@@ -11,21 +9,34 @@ import { ProductsService } from 'src/app/services/products.service';
 export class HomeComponent implements OnInit {
 
   showFiller = true;
-  key="";
   showDashboard=true;
   createProduct=false;
   inventory=false;
   invoice=false;
-  constructor(private route:ActivatedRoute,private router:Router){
-    let firstParam = this.route.snapshot.queryParamMap.get('edit');
 
-    this.key=firstParam?firstParam:"";
-    console.log(this.key)
+  totalInventario=200;
+  isInventarioBajo=false;
+  constructor(private ProductsService:ProductsService){
+
   }
 
   ngOnInit(): void {
+      this.countInventary();
 
   }
+
+async countInventary(): Promise<void>{
+  this.ProductsService.getProducts().then((res)=>{
+    let count=Object.keys(res);
+    this.totalInventario=count.length;
+    if(this.totalInventario<4){
+      this.isInventarioBajo=true;
+    }
+  })
+}
+
+
+
 
 
 redirect(index:number){
@@ -36,28 +47,28 @@ switch (index) {
      this.invoice=false;
      this.createProduct=false;
      this.inventory=false;
-    //this.router.navigate(['/invoice']);
+
     break;
     case 1:
       this.showDashboard=false;
       this.invoice=true;
       this.createProduct=false;
       this.inventory=false;
-     // this.router.navigate(['/product']);
+
     break;
     case 2:
       this.showDashboard=false;
      this.invoice=false;
      this.createProduct=true;
      this.inventory=false;
-   //   this.router.navigate(['/manager-product']);
+
     break;
     case 3:
       this.showDashboard=false;
      this.invoice=false;
      this.createProduct=false;
      this.inventory=true;
-   //   this.router.navigate(['/manager-product']);
+
     break;
 
   default:

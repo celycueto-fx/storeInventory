@@ -1,81 +1,95 @@
 <div id="home-main">
-<div>
-  <mat-toolbar fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20">
-    <mat-icon (click)="drawer.toggle()">menu</mat-icon>
-    <span>Store Manager</span>
-  </mat-toolbar>
-</div>
-
-
-<mat-drawer-container class="product-container" autosize>
-
-  <mat-drawer #drawer class="product-sidenav" mode="side" opened>
-    <div class="snip1211"  fxLayout="column" fxLayoutAlign="start">
-    <a  (click)="redirect(0)"><mat-icon >home</mat-icon>Home</a>
-    <a  (click)="redirect(1)"><mat-icon>monetization_on</mat-icon>Crear venta</a>
-    <a  (click)="redirect(2)"><mat-icon>add</mat-icon>Crear producto</a>
-    <a  (click)="redirect(3)"><mat-icon>list</mat-icon>Gestionar Inventario</a>
+  <div>
+    <mat-toolbar fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20">
+      <mat-icon (click)="drawer.toggle()">menu</mat-icon>
+      <span>Store Manager</span>
+    </mat-toolbar>
   </div>
 
-  </mat-drawer>
+  <mat-drawer-container class="product-container" autosize>
+    <mat-drawer #drawer class="product-sidenav" mode="side" opened>
+      <div class="snip1211" fxLayout="column" fxLayoutAlign="start">
+        <a (click)="redirect(0)"><mat-icon>home</mat-icon>Home</a>
+        <a (click)="redirect(1)"
+          ><mat-icon>monetization_on</mat-icon>Crear venta</a
+        >
+        <a (click)="redirect(2)"><mat-icon>add</mat-icon>Crear producto</a>
+        <a (click)="redirect(3)"
+          ><mat-icon>list</mat-icon>Gestionar Inventario</a
+        >
+      </div>
+    </mat-drawer>
 
-  <div class="product-sidenav-content">
-    <div *ngIf="showDashboard" >
-    <div  class="titleInv" fxLayoutAlign="center center">
-      <h1>GESTIONA TU INVENTARIO Y VENDE !!</h1>
+    <div class="product-sidenav-content">
+
+      <div *ngIf="showDashboard">
+        <div class="alertInventario" *ngIf="isInventarioBajo">
+          Quedan pocos productos en el inventario !!! Total productos : {{ totalInventario}}
+        </div>
+        <div class="titleInv" fxLayoutAlign="center center">
+          <h1>GESTIONA TU INVENTARIO Y VENDE !!</h1>
+        </div>
+        <br />
+        <div
+          class="cards"
+          fxLayout="row"
+          fxLayoutAling="space-around center"
+          fxLayoutGap="20"
+        >
+          <span class="product-spacer"></span>
+          <div>
+            <mat-card fxLayoutGap="40" color="primary">
+              <mat-card-header class="cards card1">
+                <mat-card-title>Crear Productos</mat-card-title>
+                <img
+                  class="image-content"
+                  src="../../../assets/product_1573347.png"
+                />
+              </mat-card-header>
+            </mat-card>
+          </div>
+          <br />
+          <div>
+            <mat-card>
+              <mat-card-header class="cards card2">
+                <mat-card-title>Empezar Venta</mat-card-title>
+                <img
+                  class="image-content"
+                  src="../../../assets/price-tag_3956304.png"
+                />
+              </mat-card-header>
+            </mat-card>
+          </div>
+          <br />
+          <div>
+            <mat-card class="cards card3" fxLayoutGap="40">
+              <mat-card-header>
+                <mat-card-title>Gestionar Inventario</mat-card-title>
+                <img
+                  class="image-content"
+                  src="../../../assets/checklist_2125352.png"
+                />
+              </mat-card-header>
+            </mat-card>
+          </div>
+        </div>
+        <br />
+        <div fxLayoutAlign="center center">
+          <img class="image-contentB" src="../../../assets/cajaspersonas.jpg" />
+        </div>
+      </div>
+
+      <div *ngIf="invoice">
+        <app-invoice></app-invoice>
+      </div>
+
+      <div *ngIf="createProduct">
+        <app-product></app-product>
+      </div>
+
+      <div *ngIf="inventory">
+        <app-manager-product></app-manager-product>
+      </div>
     </div>
-    <br>
-  <div class="cards" fxLayout="row" fxLayoutAling="space-around center"  fxLayoutGap="20">
-    <span class="product-spacer"></span>
-<div>
-    <mat-card  fxLayoutGap="40" color="primary">
-      <mat-card-header  class="cards card1">
-        <mat-card-title>Crear Productos</mat-card-title>
-        <img class="image-content" src="../../../assets/product_1573347.png">
-      </mat-card-header>
-
-    </mat-card>
-  </div>
-    <br>
-    <div>
-    <mat-card>
-      <mat-card-header class=" cards card2">
-        <mat-card-title>Empezar Venta</mat-card-title>
-        <img class="image-content" src="../../../assets/price-tag_3956304.png">
-      </mat-card-header>
-
-    </mat-card>
-  </div>
-    <br>
- <div>
-    <mat-card class=" cards card3" fxLayoutGap="40">
-      <mat-card-header>
-        <mat-card-title>Gestionar Inventario</mat-card-title>
-        <img class="image-content" src="../../../assets/checklist_2125352.png">
-      </mat-card-header>
-
-    </mat-card>
-  </div>
-    </div>
-<br>
-    <div  fxLayoutAlign="center center">
-      <img class="image-contentB" src="../../../assets/cajaspersonas.jpg">
-    </div>
-  </div>
-
-  <div *ngIf="invoice" >
-<app-invoice></app-invoice>
-  </div>
-
-  <div *ngIf="createProduct">
-    <app-product></app-product>
-  </div>
-
-  <div *ngIf="inventory">
-    <app-manager-product></app-manager-product>
-  </div>
-  </div>
-
-</mat-drawer-container>
-
+  </mat-drawer-container>
 </div>

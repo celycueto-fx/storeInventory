@@ -1,9 +1,9 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
-import { Route, Router } from '@angular/router';
+import {  Router } from '@angular/router';
 import { ProductInterface } from 'src/app/models/product-interface';
 import { ProductsService } from 'src/app/services/products.service';
-import {MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
 import { EditProductComponent } from './edit-product/edit-product.component';
 
 @Component({
@@ -66,8 +66,8 @@ export class ManagerProductComponent implements OnInit,AfterViewInit {
 
    let key = this.data[id].$key as String;
    const dialogRef = this.dialog.open(EditProductComponent, {
-    data: key,
-  });
+    data: key,disableClose: true
+  }, );
 
   dialogRef.afterClosed().subscribe(result => {
    alert("Producto modificado con exito!!");

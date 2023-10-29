@@ -113,4 +113,15 @@ margin-right: 10px;
   background: #eafcfc ;
   color:#184655
 }
+
+.alertInventario{
+  background: #ff4f4f;
+  padding: 20px;
+  color: black;
+  display: flex;
+  border-radius: 0.5em;
+  justify-content: space-evenly;
+  height: 20px;
+  width: 100%;
+}
 }

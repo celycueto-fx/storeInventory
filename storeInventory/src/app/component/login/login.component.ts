@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     if (this.form.value != null) {
       this.authService.signInWithEmailAndPassword(this.form.value.email, this.form.value.pass).then(() => {
         this.router.navigate(['/home']);
-console.log(this.form.value)
+
       });
 
     }
